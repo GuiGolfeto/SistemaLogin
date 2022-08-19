@@ -4,9 +4,9 @@ include('server/conexao.php');
 if (isset($_POST['emailUser']) || isset($_POST['senhaUser'])) {
     
     if (strlen($_POST['emailUser']) == 0) {
-        echo "Preencha seu email";
+        echo "<script>console.log('Preencha seu email!');</script>";
     }else if (strlen($_POST['senhaUser']) == 0) {
-        echo "Preencha sua senha";
+        echo "<script>console.log('Preencha sua senha!');</script>";
     }else {
 
         $emailUser = $mysqli->real_escape_string($_POST['emailUser']);
@@ -39,33 +39,45 @@ if (isset($_POST['emailUser']) || isset($_POST['senhaUser'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/index.css" />
     <title>Login</title>
 </head>
 <body>
-    <h1>Entre em sua conta</h1>
-    <form action="" method="POST">
-        <p>
-            <label for="emailUser">Email</label>
-            <input type="email" name="emailUser" id="emailUser" placeholder="xxxxxxx@mail.com">
-        </p>
-
-        <p>
-            <label for="senhaUser">Senha</label>
-            <input type="password" name="senhaUser" id="senhaUser">
-        </p>        
-
-        <p>
-            <button type="submit">login</button>
-        </p>
-
-        <p>
-            <a href="pags/cadastro.php">Cadastrar</a>
-        </p>
+    <form action="" method="post" name="formLogin" id="formLogin" enctype="multipart/form-data">
+        <div class="container">
+            <div class="section-one">
+            <div class="social-links">
+                <div class="facebook">
+                <span>Entrar com o facebook</span>
+                <div class="icon">
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><img src="./assets/facebookLogo.svg" alt="Facebook Logo" /></a>
+                </div>
+                </div>
+                <div class="twitter">
+                <div class="icon">
+                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><img src="./assets/linkedinLogo.svg" alt="Twitter Logo" /></a>
+                </div>
+                <span>Entrar com Linkedin</span>
+                </div>
+            </div>
+            <div class="main-form">
+                <input type="email" name="emailUser" id="emailUser" placeholder="Email" required/>
+                <input type="password" name="senhaUser" id="senhaUser" placeholder="Password" required/>
+                <a href="#">Esqueci a minha senha?</a>
+                <button type="submit">Login</button>
+            </div>
+            </div>
+            <div class="section-two">
+            <div class="new-account">
+                <a href="pags/cadastro.php"><input type="button" value="Registrar-se"></a>
+            </div>
+            </div>
+        </div>
     </form>
     
 </body>
