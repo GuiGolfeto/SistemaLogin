@@ -4,9 +4,9 @@ include('server/conexao.php');
 if (isset($_POST['emailUser']) || isset($_POST['senhaUser'])) {
     
     if (strlen($_POST['emailUser']) == 0) {
-        echo "<script>console.log('Preencha seu email!');</script>";
+        echo "<script>alert('Preencha seu email!');</script>";
     }else if (strlen($_POST['senhaUser']) == 0) {
-        echo "<script>console.log('Preencha sua senha!');</script>";
+        echo "<script>alert('Preencha sua senha!');</script>";
     }else {
 
         $emailUser = $mysqli->real_escape_string($_POST['emailUser']);
